@@ -18,13 +18,37 @@ export const Database = {
     if (!playlist) {
       throw new Error("playlist not found");
     }
-    playlist.videoIds.push(Number(videoId));
-    console.log(__dirname);
+    if (playlist.videoIds.includes(videoId)) {
+      console.log("already there");
+    } else playlist.videoIds.push(Number(videoId));
+
     fs.writeFileSync(
       "./src/common/db/playlists.json",
       JSON.stringify(playlists)
     );
-    console.log(playlists);
+
+    return playlist;
+  },
+  removeVideoFromPlaylist: (videoId: number, playlistId: number): Playlist => {
+    const playlists = Database.playlists();
+    const playlist = playlists.find(
+      (playlist) => playlist.id === Number(playlistId)
+    );
+    if (!playlist) {
+      throw new Error("playlist not found");
+    }
+    if (playlist.videoIds.includes(videoId)) {
+      playlist.videoIds = playlist.videoIds.filter(
+        (video) => video !== videoId
+      );
+
+      fs.writeFileSync(
+        "./src/common/db/playlists.json",
+        JSON.stringify(playlists)
+      );
+      return playlist;
+    }
+
     return playlist;
   },
 };

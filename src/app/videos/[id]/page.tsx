@@ -1,4 +1,3 @@
-import VideoItem from "@/components/video-item";
 import { Playlist } from "@/interfaces/playlist";
 import { Video } from "@/interfaces/video";
 import { notFound } from "next/navigation";

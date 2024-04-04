@@ -9,7 +9,7 @@ export default async function VideosPage() {
 
   return (
     <>
-      <h1>Videos route</h1>
+      <h1>All Videos</h1>
       <ul>
         {videos.map((video) => (
           <Link key={video.id} href={`/videos/${video.id}`}>

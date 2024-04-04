@@ -9,10 +9,16 @@ export default async function PlaylistsPage() {
   );
   return (
     <>
-      <h1>Playlists route</h1>
+      <h1>Playlists</h1>
+      <form action="">
+        <button>Add new playlist</button>
+      </form>
       {playlists.map((playlist) => (
         <Link key={playlist.id} href={`/playlists/${playlist.id}`}>
           <PlaylistItem playlist={playlist} />
+          <form action="">
+            <button>Remove playlist</button>
+          </form>
         </Link>
       ))}
     </>

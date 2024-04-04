@@ -2,6 +2,7 @@ import VideoItem from "@/components/video-item";
 import { Playlist } from "@/interfaces/playlist";
 import { Video } from "@/interfaces/video";
 import { notFound } from "next/navigation";
+import { removeVideoFromPlaylist } from "./removeVideoFromPlaylist";
 
 import React from "react";
 
@@ -26,13 +27,20 @@ export default async function PlaylistsDetailPage({
 
   return (
     <>
-      <h1>Playlists route</h1>
-      <div>{playlist.name}</div>
+      
+      <h1>{playlist.name}</h1>
       <ul>
         {videos
           .filter((video) => !!video)
           .map((video) => (
-            <VideoItem key={video.id} video={video} />
+            <div key={video.id}>
+              <VideoItem video={video} />
+              <form action={removeVideoFromPlaylist}>
+                <input type="hidden" name="videoId" value={video.id} />
+                <input type="hidden" name="playlistId" value={playlist.id} />
+                <button>Remove from playlist</button>
+              </form>
+            </div>
           ))}
       </ul>
     </>
