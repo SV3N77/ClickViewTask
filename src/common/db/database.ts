@@ -1,7 +1,6 @@
 import { Playlist } from "@/interfaces/playlist";
 import { Video } from "@/interfaces/video";
 import fs from "node:fs";
-import path from "node:path";
 
 export const Database = {
   playlists: (): Playlist[] => {
@@ -72,7 +71,7 @@ export const Database = {
     };
 
     playlists.push(playlist);
-    console.log(playlists);
+
     fs.writeFileSync(
       "./src/common/db/playlists.json",
       JSON.stringify(playlists)

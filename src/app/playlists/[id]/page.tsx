@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { removeVideoFromPlaylist } from "./removeVideoFromPlaylist";
 
 import React from "react";
+import { Button } from "react-bootstrap";
 
 export default async function PlaylistsDetailPage({
   params,
@@ -27,22 +28,25 @@ export default async function PlaylistsDetailPage({
 
   return (
     <>
-      
       <h1>{playlist.name}</h1>
-      <ul>
-        {videos
-          .filter((video) => !!video)
-          .map((video) => (
-            <div key={video.id}>
-              <VideoItem video={video} />
-              <form action={removeVideoFromPlaylist}>
-                <input type="hidden" name="videoId" value={video.id} />
-                <input type="hidden" name="playlistId" value={playlist.id} />
-                <button>Remove from playlist</button>
-              </form>
-            </div>
-          ))}
-      </ul>
+
+      {videos
+        .filter((video) => !!video)
+        .map((video) => (
+          <div
+            key={video.id}
+            className="d-flex justify-content-between mb-3 align-center bg-card border rounded"
+          >
+            <VideoItem video={video} />
+            <form action={removeVideoFromPlaylist}>
+              <input type="hidden" name="videoId" value={video.id} />
+              <input type="hidden" name="playlistId" value={playlist.id} />
+              <Button variant="primary" size="sm" className="mx-4">
+                Delete from playlist
+              </Button>
+            </form>
+          </div>
+        ))}
     </>
   );
 }

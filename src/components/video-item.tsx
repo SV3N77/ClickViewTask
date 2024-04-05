@@ -10,9 +10,12 @@ export default function VideoItem(props: VideoItemProps) {
   const { video } = props;
 
   return (
-    <Link href={`/videos/${video.id}`} className="next-link">
-      <Row>
-        <Col xs="12" md="3" className="mb-3">
+    <Link
+      href={`/videos/${video.id}`}
+      className="next-link w-75 mx-auto bg-card border rounded"
+    >
+      <Row className="p-3 mb-3">
+        <Col xs="12" md="3" className="my-auto">
           <Image
             fluid
             rounded
@@ -21,9 +24,12 @@ export default function VideoItem(props: VideoItemProps) {
             className="w-100"
           />
         </Col>
-        <Col xs="12" md="9" className="mb-3">
+        <Col xs="12" md="9" className="mx-auto">
           <h2 className="h4">{video.name}</h2>
-          <p>{video.description}</p>
+          <div className="text-xs">
+            Duration: {Math.round(video.duration / 60000)} minutes
+          </div>
+          <div className="text-s py-1">{video.description}</div>
         </Col>
       </Row>
     </Link>

@@ -1,5 +1,6 @@
 import { Database } from "@/common/db/database";
 import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 
 export async function addVideoToPlaylist(formData: FormData) {
   "use server";
@@ -13,4 +14,5 @@ export async function addVideoToPlaylist(formData: FormData) {
   );
   revalidatePath("/playlists");
   revalidatePath(`/playlists/${playlistId}`);
+  redirect("/playlists");
 }

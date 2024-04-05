@@ -8,10 +8,10 @@ export default async function VideosPage() {
 
   return (
     <>
-      <h1>All Videos</h1>
-      <ul>
+      <h1 className="mb-4">All Videos</h1>
+      <ul className="">
         {videos.map((video) => (
-          <div key={video.id}>
+          <div key={video.id} className="d-flex mb-3">
             <VideoItem video={video} />
           </div>
         ))}

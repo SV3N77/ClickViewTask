@@ -8,3 +8,30 @@
   color: inherit;
   text-decoration: none;
 }
+
+.bg-card {
+  background: #e6e6ea;
+}
+
+.text-s {
+  font-size: 0.8rem;
+}
+
+.text-xs {
+  font-size: 0.6rem;
+}
+
+.text-m {
+  font-size: 1rem;
+}
+
+.text-l {
+  font: 2rem;
+}
+.align-center {
+  align-items: center;
+}
+
+.font-bold {
+  font-weight: bold;
+}
