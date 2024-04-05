@@ -23,10 +23,8 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Navigation />
-        
-        <Container>
-          {children}
-        </Container>
+
+        <Container>{children}</Container>
       </body>
     </html>
   );

@@ -1,6 +1,5 @@
 import VideoItem from "@/components/video-item";
 import { Video } from "@/interfaces/video";
-import Link from "next/link";
 
 export default async function VideosPage() {
   const videos = await fetch("http://localhost:3000/api/videos").then(
@@ -12,9 +11,9 @@ export default async function VideosPage() {
       <h1>All Videos</h1>
       <ul>
         {videos.map((video) => (
-          <Link key={video.id} href={`/videos/${video.id}`}>
+          <div key={video.id}>
             <VideoItem video={video} />
-          </Link>
+          </div>
         ))}
       </ul>
     </>
