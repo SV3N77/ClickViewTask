@@ -1,5 +1,7 @@
 import React from "react";
 import { addNewPlaylist } from "./addNewPlaylist";
+import Form from "react-bootstrap/Form";
+import InputGroup from "react-bootstrap/InputGroup";
 
 export default async function PlaylistsPage() {
   return (
@@ -9,15 +11,23 @@ export default async function PlaylistsPage() {
         <form action={addNewPlaylist} className="d-flex flex-column">
           <div className="d-flex flex-column">
             <label htmlFor="playlistName" className="my-1">
-              Name:
+              Name
             </label>
-            <input type="text" name="playlistName" />
+            <input
+              type="text"
+              name="playlistName"
+              className="p-1 text-s outline-none"
+            />
           </div>
           <div className="d-flex flex-column mb-4">
             <label htmlFor="playlistDescription" className="my-1">
-              Description:
+              Description
             </label>
-            <textarea name="playlistDescription" />
+            <textarea
+              name="playlistDescription"
+              rows={3}
+              className="p-1 text-s outline-none"
+            />
           </div>
           <button className="btn btn-primary w-50 mx-auto">Add playlist</button>
         </form>

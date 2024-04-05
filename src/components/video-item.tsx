@@ -15,7 +15,7 @@ export default function VideoItem(props: VideoItemProps) {
       className="next-link w-75 mx-auto bg-card border rounded"
     >
       <Row className="p-3 mb-3">
-        <Col xs="12" md="3" className="my-auto">
+        <Col xs="12" md="4" className="my-auto">
           <Image
             fluid
             rounded
@@ -24,7 +24,7 @@ export default function VideoItem(props: VideoItemProps) {
             className="w-100"
           />
         </Col>
-        <Col xs="12" md="9" className="mx-auto">
+        <Col xs="12" md="8" className="mx-auto">
           <h2 className="h4">{video.name}</h2>
           <div className="text-xs">
             Duration: {Math.round(video.duration / 60000)} minutes

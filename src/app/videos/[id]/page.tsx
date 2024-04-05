@@ -2,8 +2,7 @@ import { Playlist } from "@/interfaces/playlist";
 import { Video } from "@/interfaces/video";
 import { notFound } from "next/navigation";
 import { addVideoToPlaylist } from "./addVideoToPlaylist";
-import { Image } from "react-bootstrap";
-import Form from "react-bootstrap/Form";
+import { Button, Image } from "react-bootstrap";
 import React from "react";
 
 export default async function PlaylistsDetailPage({
@@ -42,16 +41,21 @@ export default async function PlaylistsDetailPage({
             </div>
           </div>
         </div>
-        <form action={addVideoToPlaylist} className="d-flex w-50">
+        <form
+          action={addVideoToPlaylist}
+          className="d-flex justify-content-end"
+        >
           <input type="hidden" name="videoId" value={video.id} />
-          <Form.Select name="playlistId" className="mx-2">
+          <select name="playlistId" className="mx-3 outline-none rounded px-3">
             {playlists.map((playlist) => (
               <option key={playlist.id} value={playlist.id}>
                 {playlist.name}
               </option>
             ))}
-          </Form.Select>
-          <button className="btn btn-primary w-100">Add to playlist</button>
+          </select>
+          <Button variant="primary" size="sm">
+            Add to playlist
+          </Button>
         </form>
       </div>
     </>
