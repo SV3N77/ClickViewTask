@@ -3,7 +3,6 @@ import { Playlist } from "@/interfaces/playlist";
 import { Video } from "@/interfaces/video";
 import { notFound } from "next/navigation";
 import { removeVideoFromPlaylist } from "./removeVideoFromPlaylist";
-
 import React from "react";
 import { Button } from "react-bootstrap";
 
@@ -41,7 +40,12 @@ export default async function PlaylistsDetailPage({
             <form action={removeVideoFromPlaylist}>
               <input type="hidden" name="videoId" value={video.id} />
               <input type="hidden" name="playlistId" value={playlist.id} />
-              <Button variant="primary" size="sm" className="mx-4">
+              <Button
+                variant="primary"
+                size="sm"
+                className="mx-4"
+                type="submit"
+              >
                 Delete from playlist
               </Button>
             </form>

@@ -26,7 +26,7 @@ export default async function PlaylistsPage() {
           <PlaylistItem playlist={playlist} />
           <form action={removePlaylist} className="mx-4">
             <input type="hidden" value={playlist.id} name="playlistId" />
-            <Button variant="primary" size="sm">
+            <Button variant="primary" size="sm" type="submit">
               Remove playlist
             </Button>
           </form>

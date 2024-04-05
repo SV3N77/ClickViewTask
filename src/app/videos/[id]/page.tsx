@@ -53,7 +53,7 @@ export default async function PlaylistsDetailPage({
               </option>
             ))}
           </select>
-          <Button variant="primary" size="sm">
+          <Button variant="primary" size="sm" type="submit">
             Add to playlist
           </Button>
         </form>
